@@ -8,14 +8,19 @@ module.exports = {
         app: './src/index.js',
         print: './src/print.js'
     },
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist'
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'Output Management'
         })
-    ]
+    ],
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
+    }
 };
